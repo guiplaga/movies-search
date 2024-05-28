@@ -1,5 +1,5 @@
-main {
-  height: 400px;
+header {
+  height: 200px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -21,6 +21,19 @@ form input {
   border: none;
   border-radius: 10px;
   background-color: #5c5b5b;
+  padding-left: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.error {
+  border: 2px, solid, red;
+  box-shadow: 0 0 7px red;
+}
+
+form input:focus {
+  outline: none;
+  border: 2px solid rgb(124, 124, 233);
+  box-shadow: 0 0 10px #5c5b5b;
 }
 
 form button {
@@ -30,8 +43,56 @@ form button {
   border: none;
   background-color: #5c5b5b;
   cursor: pointer;
+  transition: all 0.1s ease-in-out;
 }
 
-.search-button :first-child :hover {
+form button:hover {
   transform: scale(1.1);
+  border: 1px solid rgb(124, 124, 233);
+  color: rgb(124, 124, 233);
+  box-shadow: 0 0 10px #5c5b5b;
+}
+
+h1 {
+  color: rgb(124, 124, 233);
+  font-style: italic;
+}
+
+main {
+  width: 100%;
+}
+
+.movies {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 32px;
+}
+
+.movie-card {
+  background-color: #5c5b5b;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+.movie-card h2 {
+  height: fit-content;
+  width: fit-content;
+  margin: 0;
+  padding: 0;
+  text-wrap: balance;
+}
+
+.movie-card p {
+  margin: 10px 0 10px 0;
+  background-color: rgb(124, 124, 233);
+  width: fit-content;
+  padding: 0 10px 0 10px;
+  border-radius: 20px;
+}
+
+.movie-card img {
+  height: auto;
+  width: auto;
 }
