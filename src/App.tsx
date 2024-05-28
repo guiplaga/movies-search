@@ -1,12 +1,11 @@
-import { useState } from "react";
 import "./App.css";
 import { Movies } from "./components/movies";
+import { useError } from "./hooks/useerror";
 import { useMovies } from "./hooks/usemovies";
 
 function App() {
-  const [error, setError] = useState("");
-
   const { movies, changeMovies } = useMovies();
+  const { error, filterError } = useError();
 
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -17,22 +16,7 @@ function App() {
 
     const input = query.toString();
 
-    if (input === "") {
-      setError("No se admite texto vacío");
-      return;
-    }
-
-    if (input.match(/^d+$/)) {
-      setError("No se puede buscar una película con un número");
-      return;
-    }
-
-    if (input.length < 3) {
-      setError("La búsqueda debe contener al menos 3 carácteres");
-      return;
-    }
-
-    setError("");
+    filterError(input);
 
     changeMovies(input);
   };
