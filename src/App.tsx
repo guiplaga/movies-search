@@ -13,11 +13,8 @@ function App() {
       new window.FormData(event.currentTarget)
     );
     console.log(query.toString());
-
     const input = query.toString();
-
     filterError(input);
-
     changeMovies(input);
   };
 
@@ -42,7 +39,7 @@ function App() {
 
       <main>
         {movies.length === 0 ? (
-          <h1>No hay películas</h1>
+          <h2>No hay películas</h2>
         ) : (
           <Movies movies={movies} />
         )}
